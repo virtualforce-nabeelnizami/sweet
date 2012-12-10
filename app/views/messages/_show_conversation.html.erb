@@ -1,0 +1,18 @@
+<div id="user_nav">
+  <div id="content">
+    <div class="poc">
+       <% unless @message.blank? %>
+        <% @message.each do |f|%>
+          <div class="chat_container">
+          <div id="ppi">  <%= image_tag 'user.jpg' %></div>
+            <div class="chat_bubble"><%= f.content %>
+              <div class="arrow_border"></div>
+              <div class="bubble_arrow"></div>
+            </div>
+            <div id="icon_chat">  <%= image_tag 'clock.png' %></div>
+        </div>
+          <% end %>
+          <% end %>
+    </div>
+  </div>
+</div>

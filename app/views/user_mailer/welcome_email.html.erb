@@ -1,0 +1,12 @@
+    <h1>Hi <%= @user.first_name  %></h1>
+    <p>
+      
+      Respond to this sweet gesture > <%= url_for(:host => 'localhost.3000' ,:controller => 'messages', :action => 'show', :id => @message.id)%>.<br/>
+      <%= @message.content  %> 
+                                        
+    </p>
+    
+
+  
+
+

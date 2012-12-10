@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sweet</title>
+    <%= stylesheet_link_tag    "sweetmark", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="mood domains">
+  <header class="default-header">
+
+    <nav>
+
+      <h1 class="logo">
+        <a href="http://www.sweetmaker.com/">
+          <%=  image_tag 'logo-white.png'%>
+        </a>
+
+      </h1>
+      <% unless current_user.blank? %>
+        <ul id="reg_nav">
+          <li><a href="#" title="Menu" class="goals-link"><%= image_tag "menu.png" %><p>Menu<p></a></li>
+          <li style="position:relative;"><div style="position:absolute; top:-0.3em; right:1.5em; color:#fff; font-size: 0.6em; padding:0; margin:0; font-weight:900;"><%  unless current_user.blank? %><%=  @message.count %> <%  end %> </div><%= image_tag 'messages.png', :onclick => 'show_all()' %> <p>Messages</p></li>
+          <li><a href="#" title="Setting" class="account-link"><%= image_tag 'setting.png' %><p>Setting<p></a></li>
+        </ul>
+      <% end %>
+    </nav>
+  </header>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <div id ="message_form">
+    <div id ="message_all">
+      <div id ="reply_form">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <script>
+    function show_all() {
+
+      alert('ssda')
+      return $.ajax({
+
+        url:"/messages/show",
+        type:"get",
+        dataType:"html",
+        processData:false,
+        success:function (data) {
+          $("#message_all").html(data);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

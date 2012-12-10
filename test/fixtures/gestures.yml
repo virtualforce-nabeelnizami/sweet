@@ -1,0 +1,36 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gesture_name: Thank You
+  gesture_img:  <%= "/assets/gestures/balloon.jpg" %>
+  gesture_msg: Thank You for being with me and for your support.
+
+two:
+  gesture_name: You Welcome
+  gesture_img: <%= "/assets/gestures/love.jpg" %>
+  gesture_msg: You are most welcome its my pleasure.
+
+  three:
+  gesture_name: Good morning.
+  gesture_img: <%= "/assets/gestures/sun.jpg" %>
+  gesture_msg: Good morning have a nice day.
+
+  four:
+  gesture_name: Good evening
+  gesture_img: <%= "/assets/gestures/tea.jpg" %>
+  gesture_msg: Good evening its tea time.
+
+  five:
+  gesture_name: On Time
+  gesture_img: <%= "/assets/gestures/clock.jpg" %>
+  gesture_msg: Please be there on time dont get late.
+
+  six:
+  gesture_name: Call Later
+  gesture_img: <%= "/assets/gestures/meeting.jpg" %>
+  gesture_msg: I am in a meeting I will call you later.
+
+  seven:
+  gesture_name: Sorry
+  gesture_img: <%= "/assets/gestures/gift.jpg" %>
+  gesture_msg: I am realy sorry its so embaracing.

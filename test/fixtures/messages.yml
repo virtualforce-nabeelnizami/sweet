@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  gesture: 
+  frm_id: 1
+  content: MyText
+  status: 1
+
+two:
+  user: 
+  gesture: 
+  frm_id: 1
+  content: MyText
+  status: 1

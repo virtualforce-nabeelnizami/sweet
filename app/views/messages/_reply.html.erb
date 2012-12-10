@@ -1,0 +1,79 @@
+<script type="text/javascript" src="jquery.form.js"></script>
+<div id="content">
+  <div class="poc">
+    <ul class="blcbtn">
+      <li class="blc_activity">
+        <div class="dc"><a title="Activity" href="#">
+          <div>
+            <h4><%= @message.user.first_name %> Says <%=  @message.gesture.gesture_name %></h4>
+            <p><%= @message.gesture.gesture_msg %></p>
+          </div>
+          </a> </div>
+      </li>
+    </ul>
+    <div style="background:none; border:none; margin-bottom:0;" class="chat_container">
+      <div id="ppi"><%= image_tag 'user.jpg' %>
+            </div>
+      <div id="icon_chat2"><%=image_tag @message.gesture.gesture_img %><%= image_tag 'clock.png'%></div>
+      <div class="chat_bubble">        <div class="arrow_border"></div>
+        <div class="bubble_arrow"></div>
+      </div>
+    </div>
+   <div id ="content">
+  <div class ="ap">
+    <%= form_for(:message,:url => "/messages/reply", :html => {:id => 'form-for-reply'}) do |f|%>
+
+
+      <div class ="form_block">
+        <%= @message.user.first_name %>
+      </div>
+      <div class ="form_block">
+        <%= @message.user.email %>
+
+      </div>
+
+      <div class ="form_block">
+        <%= text_area_tag "message[content]",'', :placeholder => "Your message here...",:style => "min-height:3.5em;" %>
+      </div>
+      <div style="margin-bottom:5%;" class="clearfix"></div>
+      <div class ="profile">
+        <%= hidden_field_tag "gesture_id", 0 %>
+        <div class ="form_block">
+          <% gestures = Gesture.all %>
+          <div id="all_gestures" style ="margin-top: -21px !important;">
+          <% gestures.each do |s|%>
+          <div>
+            <%= image_tag s.gesture_img, :id=>"g-#{s.id}", :onclick => "save_gesture($(this),'#{s.id}', '#{s.gesture_msg}')", :class => 'selected' %>
+          </div>
+          <%end%>
+          </div>
+        </div>
+      </div>
+      <div style="display:block;" id="activitypostCntrl" class="apb">
+        <div id="postSubmit" class="act lm">
+      <%= f.submit 'Reply Sweetness'  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function save_gesture(dis,id, content) {
+    $('.selected').css({'border':'none'});
+    $('#g-'+id).css({'border': '2px solid #000'});
+    $('#message_content').attr('value', content);
+    $('#gesture_id').attr('value', id);
+  }
+
+  $(document).ready(function(){
+<%#*alert('aaaa')%>
+    $('#form-for-reply').ajaxForm(function(data){
+      $('#content').html(data);
+    })
+  })
+</script>
+  </div>
+</div>
+
+

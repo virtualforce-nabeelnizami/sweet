@@ -1,0 +1,60 @@
+<script type="text/javascript" src="jquery.form.js"></script>
+<%= stylesheet_link_tag 'jquery-ui-1.8.2.custom.js' %>
+
+
+<div id ="content">
+  <div class ="ap">
+    <%= form_for(:message,:url => "/messages/create", :html => {:id => 'form-for-message'}) do |f|%>
+
+
+      <div class ="form_block">
+        <%= text_field_tag "user[first_name]",'', :placeholder => "To Name" %>
+      </div>
+      <div class ="form_block">
+        <%= autocomplete_field_tag "user[email]",'', autocomplete_user_email_messages_path %>
+        
+      </div>
+
+      <div class ="form_block">
+        <%= text_area_tag "message[content]",'', :placeholder => "Your message here...",:style => "min-height:3.5em;" %>
+      </div>
+      <div style="margin-bottom:5%;" class="clearfix"></div>
+      <div class ="profile">
+        <%= hidden_field_tag "gesture_id", 0 %>
+        <div class ="form_block">
+          <% gestures = Gesture.all %>
+          <div id="all_gestures" style ="margin-top: -21px !important;">
+          <% gestures.each do |s|%>
+          <div>
+            <%= image_tag s.gesture_img, :id=>"g-#{s.id}", :onclick => "save_gesture($(this),'#{s.id}', '#{s.gesture_msg}')", :class => 'selected' %>
+          </div>
+          <%end%>
+          </div>
+        </div>
+      </div>
+      <div style="display:block;" id="activitypostCntrl" class="apb">
+        <div id="postSubmit" class="act lm">
+      <%= f.submit 'Send Sweetness'  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function save_gesture(dis,id, content) {
+    $('.selected').css({'border':'none'});
+    $('#g-'+id).css({'border': '2px solid #000'});
+    $('#message_content').attr('value', content);
+    $('#gesture_id').attr('value', id);
+  }
+
+  $(document).ready(function(){
+<%#*alert('aaaa')%>
+    $('#form-for-message').ajaxForm(function(data){
+      $('#content').html(data);
+    })
+  })
+</script>
+
+

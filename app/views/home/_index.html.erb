@@ -1,0 +1,116 @@
+<p id="notice"><%= notice %></p>
+<script>
+
+  $(function() {
+    $('#notice').delay(500).fadeIn('normal', function() {
+      $(this).delay(2500).fadeOut();
+    });
+  });
+
+</script>
+<div id="user_nav">
+  <% if current_user %>
+    <%= current_user.email %>.
+    <%= link_to "Log out", log_out_path %>
+    <div id="content">
+      <h1 class="st"><span><%= image_tag 'clock-white.png'%></span>Reminders</h1>
+
+      <ul class="gl">
+
+        <li class="po">
+          <div class="poc">
+            <p class="alert">Nyle's Soccer  <a href="#">Game</a> at 5</p>
+          </div>
+        </li>
+      </ul>
+      <h1 class="pf"><span><%= image_tag 'profile.png' %></span>Friends</h1>
+      <div class="profile">
+  <%# unless current_user.blank? %>
+
+        <% @friendship.each do |f|%>
+          <figure id="ppi">  <%= link_to f.first_name, :onclick => "message_new()"%></figure>
+        <% end %>
+  <%# end %>
+        <figure id="ppi">  <%= image_tag 'plus-btn.jpg', :onclick => "message_new()"%></figure>
+
+
+        <div id="message-new">
+  <%# render :partial => 'messages/new' %>
+        </div>
+        <script>
+
+          function message_new() {
+
+  <%#*alert('aaaa');%>
+      return $.ajax({
+        url:"/messages/new",
+        type:"get",
+        dataType:"html",
+        processData:false,
+        success:function (data) {
+          $("#message_form").html(data);
+        }
+      });
+    }
+   
+
+
+        </script>
+      </div>
+      <div class="poc">
+        <div id="gc" class="poc-obj">
+          <form method="POST" action="" class="account_form" id="login_form">
+            <div class="form_block">
+              <input type="text" name="search friends" value="" placeholder="Thinking of Someone?">
+            </div>
+            <div class="form_block"><input name="Submit" type="submit" class="act pri" value="Search" />
+            </div>
+          </form>
+        </div>
+
+        <% unless @mesg.blank? %>
+          <% @mesg.each do |f|%>
+      <%#= hidden_field_tag "#{f.id}", 0 %>
+            <div class="chat_container">
+              <div id="ppi">  <%= image_tag 'user.jpg' %></div>
+              <div class="chat_bubble"><%= f.content %>
+                <div class="arrow_border"></div>
+                <div class="bubble_arrow"></div>
+              </div>
+              <div id="icon_chat">
+                <%= image_tag 'gestures/reply.png', :onclick => "reply('#{f.id}')", :name => 'icon-chat' %>
+              </div>
+              <div id="icon_chat">  <%= image_tag 'clock.png' %></div>
+            </div>
+          <% end %>
+        <% end %>
+        <script>
+
+          function reply(id) {
+            
+  
+            return $.ajax({
+              url:"/messages/reply/"+id,
+
+              type:"get",
+              dataType:"html",
+              processData:false,
+              success:function (data) {
+                $("#reply_form").html(data);
+              }
+            });
+          }
+
+
+
+        </script>
+      </div>
+
+    <% else %>
+      <div class="login_page">
+        <div class="login_email"><%= link_to 'Login', log_in_path %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

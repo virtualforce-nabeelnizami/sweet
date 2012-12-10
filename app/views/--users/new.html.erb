@@ -1,0 +1,23 @@
+<div class ="login_page">
+<div class="listing"><h2>Sign up</h2></div>
+
+<%= form_for @user do |f| %>
+
+   <div class="login_email"><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+   <div class="login_email"><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+  <div class="login_email"><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div class="login_email"><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div class="login_email"><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div class="login_action"><%= f.submit "Sign up" %></div>
+<% end %>
+
+  
+</div>
