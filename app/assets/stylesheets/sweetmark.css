@@ -85,7 +85,7 @@ header.default-header h1.logo:after{clear:both}
 header.default-header h1.logo a{display:block;float:left;color:#fff;width:auto}
 header.default-header h1.logo a img{width:100%;margin-top:0.3em}
 header.default-header h1.logo a img.brst-logo{width:1em;height:1em;margin:0.25em 0.25em 0 0}
-header.default-header h1.logo span{font-weight:300;color:opacity(#fff,0.8);margin-top:0.25em;height:1em;line-height:1em;float:left;width:auto;white-space:nowrap;overflow:hidden;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;text-overflow:ellipsis;display:none}
+header.default-header h1.logo span{font-weight:300;margin-top:0.25em;height:1em;line-height:1em;float:left;width:auto;white-space:nowrap;overflow:hidden;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;text-overflow:ellipsis;display:none}
 header.default-header nav ul#unreg_nav{width:60%;float:right;text-align:right;margin-top:0.75em}
 header.default-header nav ul#unreg_nav li{display:inline;margin-left:0.5em;color:#fff}
 header.default-header nav ul#unreg_nav li a{color:#fff;padding:0.5em 5%;-webkit-border-radius:0.625em;-moz-border-radius:0.625em;border-radius:0.625em}header.default-header nav ul#unreg_nav li a.selected{font-weight:700}
@@ -326,7 +326,7 @@ header.lazy-header p{font-size:0.75em;width:75%;float:left;text-align:right;marg
 #content .shaping:after,#content .reminder:after,#content .manage-account:after,#content .trigger:after{clear:both}
 #content .shaping .cact,#content .reminder .cact,#content .manage-account .cact,#content .trigger .cact,#content .shaping .act,#content .reminder .act,#content .manage-account .act,#content .trigger .act{padding:0.5em 0;width:48.75%;float:left;margin-left:2.5%}
 #content .shaping .cact,#content .reminder .cact,#content .manage-account .cact,#content .trigger .cact{margin-left:0}
-#content .active,#content .persist,#content #ci.active{opacity:0;display:block}
+#content .active,#content .persist,#content #ci.active{display:block}
 #content .gl{margin:0;padding:0;list-style:none}
 #content .gl li{margin-top:1.5em}
 #content .gl li .poc{padding:0}
