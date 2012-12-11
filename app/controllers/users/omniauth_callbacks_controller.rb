@@ -16,7 +16,7 @@ redirect_to new_user_registration_url
 end
 
 end
-  end
+  
   def passthru
     render :status => 404, :text => "Not found. Authentication passthru."
   end
