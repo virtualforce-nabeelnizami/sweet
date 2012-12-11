@@ -3,11 +3,17 @@ Sweet::Application.routes.draw do
 
   devise_for :users, :controllers=> { :omniauth_callbacks=> "users/omniauth_callbacks"}
 
-  get "sessions/new"
 
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "sign_up" => "users#new", :as => "sign_up"
+  devise_for :users
+   devise_scope :user do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy"
+  end
+#  get "sessions/new"
+#
+#  get "log_out" => "sessions#destroy", :as => "log_out"
+#  get "log_in" => "sessions#new", :as => "log_in"
+#  get "sign_up" => "users#new", :as => "sign_up"
   
   resources :sessions
 #  resources :messages
