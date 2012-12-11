@@ -1,4 +1,4 @@
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+/*article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
   display: block; }
 
 audio, canvas, video {
@@ -548,7 +548,7 @@ header {
       margin-bottom: 0; } } }
 
 #content {
-  /*padding:1.5em 5% 1em;border-bottom:0.3125em solid #9e9d95*/
+  padding:1.5em 5% 1em;border-bottom:0.3125em solid #9e9d95
   strong {
     font-weight: bold; }
   dfn {
@@ -2558,7 +2558,7 @@ h1.fof {
         padding: 0.1em 0.25em 0.25em 0.25em;
         margin: 0; } } } }
 
-/*===================chat=============================*/
+===================chat=============================
 
 .chat_container {
   padding: .5em .25em .75em .25em;
@@ -2661,7 +2661,7 @@ h1.fof {
   _border-right-color: #666;
   _filter: chroma(color = grey); }
 
-/*  for IE6 only */
+  for IE6 only 
 
 .login_page {
   float: left;
@@ -2718,4 +2718,4 @@ h1.fof {
   top: -330.067px;
   left: 120.2px;
   width: 400px; }
-
+*/
